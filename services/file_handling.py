@@ -1,10 +1,10 @@
-# import os
-# import sys
+import os
+import sys
 
-# BOOK_PATH = 'book/book.txt'
-# PAGE_SIZE = 1050
+BOOK_PATH = '../book/book.txt'
+PAGE_SIZE = 1050
 
-# book: dict[int, str] = {}
+book: dict[int, str] = {}
 
 
 # Функция, возвращающая строку с текстом страницы и ее размер
@@ -26,17 +26,17 @@ def _get_part_text(text: str, start: int, size: int) -> tuple[str, int]:
     return (split_text, len(split_text))
 
 
-text = 'Да? Вы точно уверены? Может быть, вам это показалось?.. Ну, хорошо, приходите завтра, тогда и посмотрим, что можно сделать. И никаких возражений! Завтра, значит, завтра!'
-print(*_get_part_text(text, 0, 54), sep='\n')
+# Функция, формирующая словарь книги
+def prepare_book(path: str):
+    with open(path, encoding='utf-8') as file:
+        fileContent = file.read()
+    n = 1
+    while fileContent:
+        page_res = _get_part_text(fileContent, 0, PAGE_SIZE)
+        fileContent = fileContent[page_res[1]:]
+        book[n] = page_res[0].lstrip()
+        n += 1
 
-text = 'Раз. Два. Три. Четыре. Пять. Прием!'
-print(*_get_part_text(text, 5, 9), sep='\n')
 
-
-# # Функция, формирующая словарь книги
-# def prepare_book(path: str) -> None:
-#     pass
-
-
-# # Вызов функции prepare_book для подготовки книги из текстового файла
-# prepare_book(os.path.join(sys.path[0], os.path.normpath(BOOK_PATH)))
+# Вызов функции prepare_book для подготовки книги из текстового файла
+prepare_book(os.path.join(sys.path[0], os.path.normpath(BOOK_PATH)))
