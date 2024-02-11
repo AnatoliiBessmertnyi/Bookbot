@@ -13,7 +13,7 @@ Bookreader - это читалка книг для телеграм бота, н
 
 1. Клонируйте репозиторий с GitHub:
 
-git clone https://github.com/yourusername/bookreader.git
+git clone https://github.com/AnatoliiBessmertnyi/Bookbot
 
 2. Установите необходимые зависимости:
 
