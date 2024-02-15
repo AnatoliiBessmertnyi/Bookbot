@@ -12,17 +12,18 @@ Bookreader - это читалка книг для телеграм бота, н
 Для установки Bookreader следуйте следующим шагам:
 
 1. Клонируйте репозиторий с GitHub:
-
+```
 git clone https://github.com/AnatoliiBessmertnyi/Bookbot
+```
 
 2. Установите необходимые зависимости:
-
+```
 pip install -r requirements.txt
-
+```
 3. Запустите бота:
-
+```
 python bot.py
-
+```
 
 ## Использование
 
